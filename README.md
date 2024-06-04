@@ -4,6 +4,6 @@
 
 모바일융합공학과 20221038 임예은
 
-![](https://github.com/yenn222/SHL-Arduino/commit/1075f64d27a3109db948c28e4e4f659429955790)
+![001](https://github.com/yenn222/SHL-Arduino/blob/main/001.png?raw=true)
 
-![](https://github.com/yenn222/SHL-Arduino/commit/1075f64d27a3109db948c28e4e4f659429955790)
+![002](https://github.com/yenn222/SHL-Arduino/blob/main/002.png?raw=true)
