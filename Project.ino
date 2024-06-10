@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 
-#define LIGHT 0
+// #define LIGHT 0
 #define BUZZER 4
 #define NUMPIXELS 4
 #define LED 2
@@ -25,13 +25,11 @@ int brightnoteLength = sizeof(brightmelody) / sizeof(int);
 
 int darkmelody[] = { 5, 5, 7, 5, 5, 7, 7, 5, 7, 5, 5, 7, 5, 5, 7, 7, 5, 7};
 int darkdurations[] = { 8, 8, 4, 8, 8, 4, 4, 2, 4, 8, 8, 4, 8, 8, 4, 4, 2, 4};
-int darknoteLength = sizeof(brightmelody) / sizeof(int);
-
-int buttonState = 0;  // variable for reading the pushbutton status
+int darknoteLength = sizeof(brightmelody) / sizeof(int);  // variable for reading the pushbutton status
 
 
 void setup() {
-  pinMode(LIGHT, INPUT); 
+  // pinMode(LIGHT, INPUT); 
   pinMode(BUZZER, OUTPUT);
   pinMode(BUTTON, INPUT);
 
@@ -40,10 +38,12 @@ void setup() {
 }
 
 void loop() {
-  buttonState = digitalRead(BUTTON);
 
-  if(buttonState == LOW){
-    if (digitalRead(0) == HIGH) {
+  if(digitalRead(BUTTON), HIGH){
+    Serial.println("on");
+    int inputValue = analogRead(A0);
+
+    if (inputValue > 860 ) {
       Serial.println("어두워요");
 
       pixels.setPixelColor(0, pixels.Color(190, 128, 232)); 
@@ -61,7 +61,7 @@ void loop() {
 	      digitalWrite(BUZZER, HIGH);
       }
     }
-    if (digitalRead(0) == LOW) {
+    if (inputValue < 800) {
       Serial.println("밝아요");
 
       pixels.setPixelColor(0, pixels.Color(190, 128, 232)); 
@@ -82,8 +82,9 @@ void loop() {
 
   }
 
-  else {
+  else if(digitalRead(BUTTON), HIGH) {
     pixels.clear(); 
+    Serial.println("off");
   }
 }
 }
